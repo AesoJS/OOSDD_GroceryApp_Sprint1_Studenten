@@ -2,14 +2,20 @@
 {
     public class GroceryListItem : Model
     {
-        public int GroceryListId; //To do: change it to a property
-        public int ProductId;     //To do: change it to a property
+        // Properties in plaats van member variabelen
+        public int GroceryListId { get; set; }
+        public int ProductId { get; set; }
         public int Amount { get; set; }
-        public GroceryListItem(int id, int groceryListId, int productId, int amount) : base(id, "")
-        {
-            //To do:assign values to the properties
-        }
 
         public Product Product { get; set; } = new(0, "None", 0);
+
+        // Constructor
+        public GroceryListItem(int id, int groceryListId, int productId, int amount) 
+            : base(id, "")
+        {
+            GroceryListId = groceryListId;
+            ProductId = productId;
+            Amount = amount;
+        }
     }
 }

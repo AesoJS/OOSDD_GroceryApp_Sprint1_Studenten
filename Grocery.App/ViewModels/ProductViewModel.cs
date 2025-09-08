@@ -6,12 +6,15 @@ namespace Grocery.App.ViewModels
 {
     public class ProductViewModel : BaseViewModel
     {
-        public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Product> Products { get; set; } = new();
 
         public ProductViewModel(IProductService productService)
         {
-            Products = new(productService.GetAll());
+            var productList = productService.GetAll() ?? new List<Product>();
+            foreach (var p in productList)
+            {
+                Products.Add(p);
+            }
         }
-
     }
 }

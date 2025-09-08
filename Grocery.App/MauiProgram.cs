@@ -30,7 +30,6 @@ namespace Grocery.App
             builder.Services.AddSingleton<IGroceryListRepository, GroceryListRepository>();
             builder.Services.AddSingleton<IGroceryListItemsRepository, GroceryListItemsRepository>();
             builder.Services.AddSingleton<IProductRepository, ProductRepository>();
-
             builder.Services.AddTransient<GroceryListsView>().AddTransient<GroceryListViewModel>();
             builder.Services.AddTransient<GroceryListItemsView>().AddTransient<GroceryListItemsViewModel>();
             builder.Services.AddTransient<ProductView>().AddTransient<ProductViewModel>();
