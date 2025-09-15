@@ -2,20 +2,20 @@
 {
     public class GroceryListItem : Model
     {
-        // Properties in plaats van member variabelen
         public int GroceryListId { get; set; }
         public int ProductId { get; set; }
         public int Amount { get; set; }
 
-        public Product Product { get; set; } = new(0, "None", 0);
+        // Navigatieproperty zodat je productinfo kunt ophalen
+        public Product Product { get; set; }
 
-        // Constructor
-        public GroceryListItem(int id, int groceryListId, int productId, int amount) 
-            : base(id, "")
+        public GroceryListItem(int id, int groceryListId, int productId, int amount, Product? product = null)
+            : base(id, product?.Name ?? "")
         {
             GroceryListId = groceryListId;
             ProductId = productId;
             Amount = amount;
+            Product = product ?? new Product(0, "Onbekend", 0);
         }
     }
 }

@@ -6,7 +6,11 @@
         public int ClientId { get; set; }
         public string Color { get; set; }
 
-        public GroceryList(int id, string name, DateOnly date, string color, int clientId) : base(id, name)
+        // Deze property had je nog niet → nodig om items in een lijst te koppelen
+        public List<GroceryListItem> Items { get; set; } = new List<GroceryListItem>();
+
+        public GroceryList(int id, string name, DateOnly date, string color, int clientId)
+            : base(id, name)
         {
             Id = id;
             Name = name;
@@ -14,6 +18,5 @@
             Color = color;
             ClientId = clientId;
         }
-
     }
 }
